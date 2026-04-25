@@ -1,0 +1,102 @@
+/* CommonSelect.css - Minimalist Form Component */
+
+.common-select-container {
+  position: relative;
+  width: 100%;
+}
+
+.common-select-trigger {
+  width: 100%;
+  padding: 0.82rem 1rem;
+  font-size: 0.95rem;
+  color: var(--brand-black, #09090b);
+  background-color: var(--brand-white, #ffffff);
+  border: 1px solid var(--brand-gray-border, #e4e4e7);
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+  user-select: none;
+}
+
+.common-select-trigger:hover {
+  border-color: #a1a1aa;
+}
+
+.common-select-trigger.open {
+  border-color: var(--brand-border-focus, #18181b);
+  box-shadow: 0 0 0 1px var(--brand-border-focus, #18181b);
+}
+
+.placeholder-text {
+  color: #a1a1aa;
+}
+
+.selected-text {
+  color: var(--brand-black, #09090b);
+}
+
+.dropdown-chevron {
+  width: 18px;
+  height: 18px;
+  color: #a1a1aa;
+  transition: transform 0.2s ease;
+}
+
+.common-select-trigger.open .dropdown-chevron {
+  transform: rotate(180deg);
+  color: var(--brand-black, #09090b);
+}
+
+.common-select-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  width: 100%;
+  background-color: var(--brand-white, #ffffff);
+  border: 1px solid var(--brand-gray-border, #e4e4e7);
+  border-radius: 8px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+  max-height: 250px;
+  overflow-y: auto;
+  padding: 0.5rem;
+  animation: dropdown-fade-in 0.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes dropdown-fade-in {
+  from { opacity: 0; transform: translateY(-5px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.common-select-option {
+  padding: 0.7rem 0.8rem;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: var(--brand-text-muted, #71717a);
+  transition: all 0.15s ease;
+}
+
+.common-select-option:hover {
+  background-color: var(--brand-gray-light, #f4f4f5);
+  color: var(--brand-black, #09090b);
+}
+
+.common-select-option.selected {
+  background-color: var(--brand-gray-light, #f4f4f5);
+  color: var(--brand-black, #09090b);
+  font-weight: 500;
+}
+
+.check-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--brand-black, #09090b);
+}
