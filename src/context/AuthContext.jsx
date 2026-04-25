@@ -4,7 +4,10 @@ import {
   fetchCurrentUser, 
   getCurrentUser,
   clearTokens,
-  clearCurrentUser 
+  clearCurrentUser,
+  login as apiLogin,
+  signup as apiSignup,
+  logout as apiLogout
 } from '../utils/auth';
 
 const AuthContext = createContext(null);
@@ -54,7 +57,6 @@ export function AuthProvider({ children }) {
   }, []);
 
   const login = async (username, password) => {
-    const { login: apiLogin } = await import('../utils/auth');
     const result = await apiLogin(username, password);
     
     if (result.success) {
@@ -66,7 +68,6 @@ export function AuthProvider({ children }) {
   };
 
   const signup = async (username, email, password, password2, role) => {
-    const { signup: apiSignup } = await import('../utils/auth');
     const result = await apiSignup(username, email, password, password2, role);
     
     if (result.success) {
@@ -78,7 +79,6 @@ export function AuthProvider({ children }) {
   };
 
   const logout = async () => {
-    const { logout: apiLogout } = await import('../utils/auth');
     await apiLogout();
     setUser(null);
     setIsAuthenticated(false);

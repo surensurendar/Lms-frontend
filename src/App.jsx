@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import StudentDashboard from './pages/StudentDashboard';
 import InstructorDashboard from './pages/InstructorDashboard';
+import Navbar from './components/Navbar';
 import './App.css';
 
 function AppRoutes() {
@@ -30,21 +31,21 @@ function AppRoutes() {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-      <Route 
-        path="/student/dashboard" 
+      <Route
+        path="/student/dashboard"
         element={
           <ProtectedRoute allowedRole="student">
             <StudentDashboard />
           </ProtectedRoute>
-        } 
+        }
       />
-      <Route 
-        path="/instructor/dashboard" 
+      <Route
+        path="/instructor/dashboard"
         element={
           <ProtectedRoute allowedRole="instructor">
             <InstructorDashboard />
           </ProtectedRoute>
-        } 
+        }
       />
       <Route path="/" element={getDefaultRoute()} />
     </Routes>
@@ -55,6 +56,7 @@ function App() {
   return (
     <AuthProvider>
       <Router>
+        <Navbar />
         <AppRoutes />
       </Router>
     </AuthProvider>
